@@ -7,16 +7,20 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using MedCRM.Data;
 
 namespace MedCRM.Models
 {
     public class Bot
     {
         public static TelegramBotClient client;
-        static InlineKeyboardMarkup docListKeyboard;
-        static ReplyKeyboardMarkup initialKeyboard = new ReplyKeyboardMarkup();
-        static List<string> phoneList { get; set; } = new List<string>();
 
+        static InlineKeyboardMarkup docListKeyboard { get; set; }
+        static ReplyKeyboardMarkup initialKeyboard { get; set; }  = new ReplyKeyboardMarkup();
+
+        static List<string> phoneList { get; set; } = new List<string>();
+        static List<Patient> patientList { get; set; } = new List<Patient>();
+        static List<Notification> notificationList { get; set; } = new List<Notification>();
 
         public Bot()
         {
@@ -35,17 +39,17 @@ namespace MedCRM.Models
             List<InlineKeyboardButton> docBtnList = new List<InlineKeyboardButton>();
             docBtnList.Add(docBtn1);
             docBtnList.Add(docBtn2);
+
             docListKeyboard = new InlineKeyboardMarkup(docBtnList);
 
             //кнопка с телефоном
             KeyboardButton telBtn = new KeyboardButton() { Text = "Отправить свой телефон", RequestContact = true };
-
         }
 
         private static async void BotOnCallbackQuery(object sender, CallbackQueryEventArgs e)
         {
-            var info = e.CallbackQuery.Data;
-            await client.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Вы прикреплены к "+ info, replyMarkup: docListKeyboard);
+            var docChoice = e.CallbackQuery.Data;
+            await client.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Вы прикреплены к " + docChoice, replyMarkup: docListKeyboard);
         }
 
         private static async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
