@@ -12,9 +12,6 @@ namespace MedCRM.Controllers
     [ApiController]
     public class BotController : ControllerBase
     {
-        Bot bot = new Bot();
-
-
         // GET: api/Bot
         [HttpGet]
         public IEnumerable<string> Get()

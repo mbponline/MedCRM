@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using MedCRM.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MedCRM.Models;
 
 namespace MedCRM
 {
@@ -69,6 +70,7 @@ namespace MedCRM
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            Bot bot = new Bot();
         }
     }
 }
