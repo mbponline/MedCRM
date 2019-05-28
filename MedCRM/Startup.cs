@@ -70,7 +70,7 @@ namespace MedCRM
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            Bot bot = new Bot();
+            BotHandler bot = new BotHandler();
         }
     }
 }
