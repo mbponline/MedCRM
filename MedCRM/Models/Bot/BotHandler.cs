@@ -9,6 +9,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 using MedCRM.Data;
 using System.Text;
 using MedCRM.Models.Bot;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedCRM.Models
 {
@@ -33,8 +34,6 @@ namespace MedCRM.Models
             client.OnMessage += BotOnMessageReceived;
             client.StartReceiving();
         }
-
-       
 
         private static async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
         {
@@ -94,6 +93,16 @@ namespace MedCRM.Models
             patient.PhoneNumber = phoneNumber;
             patient.TelegramId = contact.UserId;
             patientList.Add(patient);
+
+            //подключение к БД
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            var connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-MedCRM-D4E7B1AB-34B5-4B96-97E3-8132DB18ACDC;Trusted_Connection=True;MultipleActiveResultSets=true";
+            optionsBuilder.UseSqlServer(connectionString);
+
+            using (var context = new ApplicationDbContext(optionsBuilder.Options))
+            {
+                var a = context.Patients.FirstOrDefault(x=> x.PhoneNumber== patient.PhoneNumber);
+            }
         }
 
 
