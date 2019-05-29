@@ -5,11 +5,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MedCRM.Models;
+using MedCRM.Data;
 
 namespace MedCRM.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db;
+        public HomeController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -17,9 +23,9 @@ namespace MedCRM.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            
 
-            return View();
+            return View(db.Patients.ToList());
         }
 
         public IActionResult Contact()

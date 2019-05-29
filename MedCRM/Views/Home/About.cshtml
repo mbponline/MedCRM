@@ -1,7 +1,23 @@
-﻿@{
-    ViewData["Title"] = "About";
+﻿@model IEnumerable<MedCRM.Data.Patient>
+@{
+    Layout = null;
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+
+<h3>Пациенты</h3>
+<table>
+    <tr>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Номер телефона</td>
+        <td></td>
+    </tr>
+    @foreach (var patient in Model)
+    {
+        <tr>
+            <td>@patient.Firstname</td>
+            <td>@patient.Lastname</td>
+            <td>@patient.PhoneNumber</td>
+        </tr>
+    }
+</table>
