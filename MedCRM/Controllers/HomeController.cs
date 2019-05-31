@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MedCRM.Models;
 using MedCRM.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedCRM.Controllers
 {
@@ -20,11 +21,9 @@ namespace MedCRM.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public IActionResult About()
         {
-            
-
             return View(db.Patients.ToList());
         }
 

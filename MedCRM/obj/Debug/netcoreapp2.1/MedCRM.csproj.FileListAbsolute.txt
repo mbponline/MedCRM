@@ -67,3 +67,7 @@ C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp
 C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\MedCRM.pdb
 C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\MedCRM.csproj.CopyComplete
 C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
+C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\nuraly.zhanbyrbayev\Documents\GitHub\MedCRM\MedCRM\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
